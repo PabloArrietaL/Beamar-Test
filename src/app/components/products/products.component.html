@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <h2 class="font-weight-bold text-primary">
+      Mis productos
+    </h2>
+    <hr>
+  </div>
+  <div class="list-group">
+    <a 
+      *ngFor="let item of products$ | async" 
+      class="list-group-item list-group-item-action"
+      (click)="setProduct(item.id)">
+      {{item.name}}
+    </a>
+  </div>
+</div>

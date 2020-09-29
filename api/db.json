@@ -1,0 +1,35 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Tarjeta física"
+    },
+    {
+      "id": 2,
+      "name": "Tarjeta virtual"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Transacción a cuenta",
+      "date": "2020-10-20",
+      "amount": 150000,
+      "product": 1
+    },
+    {
+      "id": 2,
+      "description": "Pago recibo",
+      "date": "2020-11-20",
+      "amount": 75950,
+      "product": 1
+    },
+    {
+      "id": 3,
+      "description": "Compra online",
+      "date": "2020-8-20",
+      "amount": 284999,
+      "product": 2
+    }
+  ]
+}

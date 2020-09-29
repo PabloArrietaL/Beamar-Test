@@ -1,0 +1,72 @@
+<div class="mt-5 mt-sm-5 mt-md-0">
+  <div>
+    <h2 class="font-weight-bold text-primary">
+      Transacciones
+    </h2>
+    <hr>
+  </div>
+  <div class="col-md-12">
+    <ng-container *ngIf="!id || id === ''">
+      <div class="alert alert-warning" role="alert">
+        Seleccione un producto
+      </div>
+    </ng-container>
+    <ng-container *ngIf="id && id !== ''">
+      <p-table #dt [columns]="cols" [value]="transactions" dataKey="id" [rows]="5" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[5,10,20]" [loading]="loading"
+        styleClass="p-datatable-gridlines p-datatable-general" [paginator]="true" [filterDelay]="0"
+        sortMode="multiple" currentPageReportTemplate="{first} - {last} de {totalRecords}">
+
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="description">
+              Descripción<p-sortIcon field="description"></p-sortIcon>
+            </th>
+            <th pSortableColumn="amount">
+              Monto<p-sortIcon field="amount"></p-sortIcon>
+            </th>
+            <th pSortableColumn="date">
+              Fecha<p-sortIcon field="date"></p-sortIcon>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <input pInputText type="text" (input)="dt.filter($event.target.value, 'description', 'contains')"
+                class="p-column-filter">
+            </th>
+            <th>
+              <input pInputText type="text" (input)="dt.filter($event.target.value, 'amount', 'contains')"
+                class="p-column-filter">
+            </th>
+            <th>
+              <p-calendar (onSelect)="onDateSelect($event)" (onClearClick)="dt.filter('', 'date', 'equals')"
+                [showButtonBar]="true" class="p-column-filter" [yearNavigator]="true" [monthNavigator]="true"
+                [readonlyInput]="true" dateFormat="dd/mm/yy" appendTo="body" [yearRange]="yearRange" [locale]="calendar">
+              </p-calendar>
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-transaction let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns">
+                <span class="p-column-title">{{col.header}}</span>
+                {{transaction[col.field]}}
+            </td>
+        </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="3">
+              <div class="alert alert-info text-center ml-3 mr-3 mt-3" role="alert">
+                No se han encontrado coincidencias
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+
+      </p-table>
+    </ng-container>
+  </div>
+</div>
