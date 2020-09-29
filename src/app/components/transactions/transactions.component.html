@@ -5,7 +5,7 @@
     </h2>
     <hr>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 p-0">
     <ng-container *ngIf="!id || id === ''">
       <div class="alert alert-warning" role="alert">
         Seleccione un producto
@@ -41,7 +41,7 @@
             <th>
               <p-calendar (onSelect)="onDateSelect($event)" (onClearClick)="dt.filter('', 'date', 'equals')"
                 [showButtonBar]="true" class="p-column-filter" [yearNavigator]="true" [monthNavigator]="true"
-                [readonlyInput]="true" dateFormat="dd/mm/yy" appendTo="body" [yearRange]="yearRange" [locale]="calendar">
+                [readonlyInput]="true" dateFormat="dd/mm/yy" appendTo="body" [yearRange]="yearRange" [locale]="calendar" [showIcon]="true">
               </p-calendar>
             </th>
           </tr>

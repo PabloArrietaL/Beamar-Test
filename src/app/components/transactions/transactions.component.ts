@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Transaction } from 'src/app/interfaces/transactions.interface';
 import { map } from 'rxjs/operators';
 import { Table } from 'primeng/table';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-transactions',
@@ -23,6 +24,7 @@ export class TransactionsComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private cp: CurrencyPipe,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class TransactionsComponent implements OnInit {
             return {
               id: trans.id,
               description: trans.description,
-              amount: trans.amount,
+              amount: this.cp.transform(trans.amount),
               date: this.formatDate(new Date(+year, +month - 1, +day)),
               product: trans.product
             };

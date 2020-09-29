@@ -1,7 +1,7 @@
 export interface Transaction {
   id: number;
   description: string;
-  amount: number;
+  amount: number | string;
   date: string;
   product: number;
 }
