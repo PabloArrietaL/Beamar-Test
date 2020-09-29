@@ -14,7 +14,7 @@ Una vez que se haya terminado la instalación, ejecute el siguiente comando en l
 $ npm run api
 ```
 
-Después de iniciado el json-server, abra otra terminar e inicie el proyecto de Angular con el siguiente comando.
+Después de iniciado el json-server, abra otra terminal e inicie el proyecto de Angular con el siguiente comando.
 
 ```
 $ ng serve
